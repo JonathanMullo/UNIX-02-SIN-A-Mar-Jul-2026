@@ -8,3 +8,5 @@ gpg --armor --export-secret-keys #This code help to export the keys secret
 gpg --armor --export jonathanmullo100@gmail.com > mi_llave_publica.asc #Export my public key
 gpg --import lucho_llave_publica.asc #Import public key of my friend
 echo "Cfm lucho pintemonos el pelo" >msj_my_friend.txt #Save a message to my friend
+gpg --output doc_cifrado.txt --encrypt --recipient luisvillarrealp125@gmail.com msj_my_fr
+iend.txt #We encrypt our friend's message
