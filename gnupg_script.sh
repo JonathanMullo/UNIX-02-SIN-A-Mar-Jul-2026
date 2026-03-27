@@ -23,3 +23,4 @@ gpg --verify msj_my_friend.txt.asc #Check that the signed file has not been modi
 gpg --verify msj_my_friend.txt.sig msj_my_friend.txt #When the signature is in a separate file
 gpg --output doc_final.gpg --encrypt --sign --recipient luisvillarrealp125@gmail.com msj_my_friend.txt 
 #Create and encrypt the file with the signature only for the recipient
+$ gpg --decrypt lucho_doc_final.gpg #We decrypt our friend's file
