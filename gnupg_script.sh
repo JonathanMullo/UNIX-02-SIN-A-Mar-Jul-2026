@@ -20,3 +20,4 @@ gpg --verify msj_my_friend.txt.sig msj_my_friend.txt #Verify separate signature
 gpg --edit-key luisvillarrealp125@gmail.com #We assign the trust level to another person's public key
 gpg --sign-key luisvillarrealp125@gmail.com #We sign our friend's public key
 gpg --verify msj_my_friend.txt.asc #Check that the signed file has not been modified
+gpg --verify msj_my_friend.txt.sig msj_my_friend.txt #When the signature is in a separate file
