@@ -18,3 +18,5 @@ cd /etc
 cd gss/
 # Run the compiled program from the terminal
 saludobin
+# Shows the path of the current directory
+pwd
