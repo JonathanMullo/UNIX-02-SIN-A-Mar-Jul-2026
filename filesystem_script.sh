@@ -20,3 +20,9 @@ cd gss/
 saludobin
 # Shows the path of the current directory
 pwd
+# Goes to the system root directory
+cd /
+# List files/folders and show their type with symbols
+ls -F
+# List files also showing their inode number
+ls -i
