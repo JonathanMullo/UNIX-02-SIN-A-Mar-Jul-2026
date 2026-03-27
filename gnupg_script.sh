@@ -24,3 +24,5 @@ gpg --verify msj_my_friend.txt.sig msj_my_friend.txt #When the signature is in a
 gpg --output doc_final.gpg --encrypt --sign --recipient luisvillarrealp125@gmail.com msj_my_friend.txt 
 #Create and encrypt the file with the signature only for the recipient
 $ gpg --decrypt lucho_doc_final.gpg #We decrypt our friend's file
+gpg --output mensaje_descifrado.txt --decrypt lucho_doc_final.gpg # Decrypt, verify the signature and save the message
+cat mensaje_descifrado.txt # Show the decrypted message
