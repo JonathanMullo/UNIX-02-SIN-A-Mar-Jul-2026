@@ -13,3 +13,4 @@ iend.txt #We encrypt our friend's message
 gpg --decrypt lucho_doc_cifrado.txt #Decrypt the message the my friend
 gpg --clearsign msj_my_friend.txt #Place a message in the text
 gpg --verify msj_my_friend.txt.asc #We verify that the signature is correct
+gpg --sign msj_my_friend.txt #Sign the file in binary format
