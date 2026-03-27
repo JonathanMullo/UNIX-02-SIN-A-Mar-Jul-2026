@@ -11,3 +11,4 @@ echo "Cfm lucho pintemonos el pelo" >msj_my_friend.txt #Save a message to my fri
 gpg --output doc_cifrado.txt --encrypt --recipient luisvillarrealp125@gmail.com msj_my_fr
 iend.txt #We encrypt our friend's message
 gpg --decrypt lucho_doc_cifrado.txt #Decrypt the message the my friend
+gpg --clearsign msj_my_friend.txt #Place a message in the text
