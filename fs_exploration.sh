@@ -14,8 +14,15 @@ sudo parted -l && echo -e "\n--\n" && lsblk -f && echo -e "\n--\n"
 sudo parted -l
 # Shows disks and partitions in a tree
 lsblk -f
-# Run the following command only if the previous one is true
+# (AND) execute the following command if the previous one is true
 &&
 # Prints a separator with line breaks
-echo -e "\n--\n" 
-
+echo -e "\n---\n" 
+# Check if the system uses UEFI or BIOS by checking if the folder exists
+[-d /sys/firmware/efi] && echo "UEFI" || echo "BIOS"
+# Start or close a test
+[]
+# Check if the directory exists
+-d
+# (OR) execute next if previous fails
+||
