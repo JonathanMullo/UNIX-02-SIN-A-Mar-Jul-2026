@@ -8,3 +8,14 @@ sudo apt update
 sudo apt upgrade
 # Install the latest versions
 sudo apt install parted
+# Shows information about partitions and file systems
+sudo parted -l && echo -e "\n--\n" && lsblk -f && echo -e "\n--\n"
+# List all disks and their partitions
+sudo parted -l
+# Shows disks and partitions in a tree
+lsblk -f
+# Run the following command only if the previous one is true
+&&
+# Prints a separator with line breaks
+echo -e "\n--\n" 
+
