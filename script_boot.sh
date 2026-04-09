@@ -39,3 +39,9 @@ cd /bin
 .
 # Refers to the parent directory 
 ..
+# Total number of disk blocks used by the listed files
+total 8
+# Current directory with permissions, links, owner, group, size, and date
+1572966 drwxrwxrwx+ 2 codespace codespace 4096 Apr  9 12:19 .
+# Parent directory with permissions, links, owner, group, size, and date
+1572874 drwxrwxrwx+ 5 codespace root 4096 Apr  9 12:21 ..
