@@ -45,3 +45,7 @@ total 8
 1572966 drwxrwxrwx+ 2 codespace codespace 4096 Apr  9 12:19 .
 # Parent directory with permissions, links, owner, group, size, and date
 1572874 drwxrwxrwx+ 5 codespace root 4096 Apr  9 12:21 ..
+# Show detailed information about a file or directory
+stat.
+# Identifies the device (disk) where the file or directory is stored
+Device: 7,4
