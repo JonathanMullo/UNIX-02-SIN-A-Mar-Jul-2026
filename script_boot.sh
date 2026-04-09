@@ -49,3 +49,13 @@ total 8
 stat.
 # Identifies the device (disk) where the file or directory is stored
 Device: 7,4
+# Displays the current working directory
+pwd
+# Shows the current user
+whoami
+# Lists files in long format sorted by most recent modification time
+ls -lt
+# Shows the first 20 files in the /etc directory
+ls /etc | head -20
+# Shows the last 20 files in the /dev directory
+ls /dev | tail -20
