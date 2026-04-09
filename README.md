@@ -4,4 +4,5 @@ Repo for intro to UNIX
 ![alt text](image-1.png)
 2._ sudo apt install -y git vim make gcc libncurses-dev flex bison bc cpio libelf-dev libssl-dev syslinux dosfstools qemu-system-x86
 ![alt text](image-2.png)
-3._
+3._git clone --depth 1 https://github.com/torvalds/linux.git
+![alt text](image-3.png)
