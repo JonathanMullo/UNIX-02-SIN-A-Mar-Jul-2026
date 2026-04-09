@@ -23,3 +23,19 @@ echo $PATH
 cd /usr/local
 # Returns to the home directory using the HOME variable
 cd $HOME
+# Lists files with detailed info, including hidden files and inode numbers
+ls -lai
+# Lists files with long format, including hidden files and inode numbers (same as -lai)
+ls -l -a -i
+# Displays the manual/help page for the ls command
+man ls
+# Lists all files including hidden ones
+ls --all
+# List all files including hidden ones the difference is that the command is shorter
+ls -a
+# Changes the current directory to /bin
+cd /bin
+# Refers to the current directory 
+.
+# Refers to the parent directory 
+..
