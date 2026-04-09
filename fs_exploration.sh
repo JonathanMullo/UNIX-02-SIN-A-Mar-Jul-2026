@@ -26,4 +26,9 @@ echo -e "\n---\n"
 -d
 # (OR) execute next if previous fails
 ||
-
+# Create a file called test.txt
+echo "mi archivo" > test.txt
+# Displays the content of test.txt on the screen
+cat test.txt 
+# Shows detailed information about the file
+stat test.txt
