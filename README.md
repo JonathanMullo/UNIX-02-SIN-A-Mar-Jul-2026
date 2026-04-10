@@ -6,3 +6,7 @@ Repo for intro to UNIX
 ![alt text](image-2.png)
 3._git clone --depth 1 https://github.com/torvalds/linux.git
 ![alt text](image-3.png)
+4._ cd linux
+5._ make menuconfig
+6._ make -j 2
+![alt text](image-4.png)
