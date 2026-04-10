@@ -32,3 +32,22 @@ sudo make CONFIG_PREFIX=/boot-files/initramfs install
 cd /boot-files/initramfs
 #Create and edit init file (startup script)
 sudo vi init
+#Remove default linuxrc file to avoid conflicts
+sudo rm linuxrc
+#Give execution permissions to init script
+sudo chmod +x init
+#Create initramfs archive using cpio
+sudo find . | cpio -o -H newc > ../init.cpio
+#Return to previous directory
+cd ..
+#Switch to root user
+sudo su
+#Create a 50MB boot image file filled with zeros
+dd if=/dev/zero of=boot bs=1M count=50
+#Format the boot image with FAT filesystem
+mkfs -t fat boot
+#Install Syslinux bootloader on the image
+syslinux boot
+#Run virtual machine with kernel and initramfs
+qemu-system-x86_64 -nographic -append "console=ttyS0" \
+ -kernel bzImage -initrd init.cpio -drive file=boot,format=raw
