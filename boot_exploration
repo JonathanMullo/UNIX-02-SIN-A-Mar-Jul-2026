@@ -1,0 +1,4 @@
+#lists all files (including hidden ones) in detailed format with human-readable sizes
+ls -l -a -h
+#does the same using combined options (equivalent to -l -a -h)
+ls -lah
