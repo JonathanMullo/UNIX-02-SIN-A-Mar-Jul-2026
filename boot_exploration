@@ -1,8 +1,18 @@
-#lists all files (including hidden ones) in detailed format with human-readable sizes
+# lists all files (including hidden ones) in detailed format with human-readable sizes
 ls -l -a -h
-#does the same using combined options (equivalent to -l -a -h)
+# does the same using combined options (equivalent to -l -a -h)
 ls -lah
-#creates a directory named "-rf" 
+# creates a directory named "-rf" 
 mkdir -- -rf
-#removes a directory named "-rf"
+# removes a directory named "-rf"
 rmdir -- -rf
+# displays a quick on-screen help with the options of the ls command
+ls --help
+# opens the full manual for ls with a detailed explanation of all its option
+man ls
+# opens the manual for git clone with details on how to copy repositories
+man git
+# is used to search for a word, n to go forward and N to go back
+man git-clone
+# Create a shallow clone with a history truncated to the specified number of commits. Implies --single-branch unless --no-single-branch is given to fetch the histories near the tips of all branches. If you want to clone submodules shallowly, also pass --shallow-submodules
+--depth
