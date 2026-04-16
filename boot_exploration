@@ -2,3 +2,7 @@
 ls -l -a -h
 #does the same using combined options (equivalent to -l -a -h)
 ls -lah
+#creates a directory named "-rf" 
+mkdir -- -rf
+#removes a directory named "-rf"
+rmdir -- -rf
