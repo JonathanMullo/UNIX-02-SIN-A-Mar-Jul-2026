@@ -31,4 +31,16 @@ touch privado
 # gives read/write to owner and removes all permissions from group and others
 chmod u+rw,go-rwx privado
 # Verify the change of the files permissions
-14  ls -l
+ls -l
+# tries to write "hola" to a protected file, but redirection is not run with sudo
+sudo echo "hola" > /etc/archivo_protegido
+# correctly writes "hola" to a protected file using tee with sudo, hiding output
+echo "hola" | sudo tee /etc/archivo_protegido > /dev/null
+# lists all files and directories inside /etc
+ls /etc
+# displays the content of the file
+cat /etc/archivo_protegido
+# writes "hola" into a protected file using sudo and tee
+echo "hola" | sudo tee /et/archivo_protegido
+# reads from standard input and writes to a file while also showing the output on the screen
+tee
