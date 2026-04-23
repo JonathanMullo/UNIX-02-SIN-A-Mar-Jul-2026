@@ -76,3 +76,11 @@ chmod +x hola.sh
 ls -l hola.sh
 # Runs the script hola.sh
 ./hola.sh
+# Tries to create a file in /etc without admin permissions (will fail)
+touch /etc/prueba.txt
+# Creates the file in /etc using administrator privileges
+sudo touch /etc/prueba.txt
+# Creates a folder in your home directory (no sudo needed)
+mkdir ~/mi_carpeta
+# Installs cowsay from system repositories
+sudo apt install cowsay
