@@ -84,3 +84,13 @@ sudo touch /etc/prueba.txt
 mkdir ~/mi_carpeta
 # Installs cowsay from system repositories
 sudo apt install cowsay
+# Creates an empty file called prueba.txt
+touch prueba.txt
+# Changes file permissions to 600 (only owner can read and write)
+chmod 600 prueba.txt
+# Shows file permissions
+ls -l prueba.txt
+# Changes permissions to 755 (owner full access, others read/execute)
+chmod 755 prueba.txt
+# Shows permissions again to verify the change
+ls -l prueba.txt
