@@ -56,3 +56,7 @@ exit
 sudo su
 # Switches to the root user loading the full environment (login shell)
 sudo su-
+# Muestra el valor de la variable HOME
+echo "$HOME"
+# Muestra literalmente el texto $HOME
+echo '$HOME'
