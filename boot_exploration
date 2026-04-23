@@ -44,3 +44,7 @@ cat /etc/archivo_protegido
 echo "hola" | sudo tee /et/archivo_protegido
 # reads from standard input and writes to a file while also showing the output on the screen
 tee
+# Writes "chao" into a protected file using superuser privileges
+sudo sh -c 'echo "chao" >> /etc/archivo_protegido'
+# Displays the content of the protected file
+cat /etc/archivo_protegido 
