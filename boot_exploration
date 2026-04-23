@@ -60,3 +60,19 @@ sudo su-
 echo "$HOME"
 # Muestra literalmente el texto $HOME
 echo '$HOME'
+# Creates a file called hola.sh and writes the first line of the scrip
+echo '#!/bin/sh' > hola.sh
+# Appends a line to the script that prints a message
+echo 'echo "Hola desde mi primer script"' >> hola.sh
+# Displays the content of the file
+cat hola.sh
+# Executes the script (if it has permissions)
+./hola.sh
+# Shows the permissions of the file hola.sh
+ls -l hola.sh
+# Gives execution permission to the file hola.sh
+chmod +x hola.sh
+# Shows permissions again to verify the change
+ls -l hola.sh
+# Runs the script hola.sh
+./hola.sh
