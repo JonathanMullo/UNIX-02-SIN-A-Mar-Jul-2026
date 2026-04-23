@@ -48,3 +48,11 @@ tee
 sudo sh -c 'echo "chao" >> /etc/archivo_protegido'
 # Displays the content of the protected file
 cat /etc/archivo_protegido 
+# Starts a session as the superuser (root)
+sudo -i
+# Exits the current session (returns to the previous user)
+exit
+# Switches to the root user but keeps part of the current environment
+sudo su
+# Switches to the root user loading the full environment (login shell)
+sudo su-
