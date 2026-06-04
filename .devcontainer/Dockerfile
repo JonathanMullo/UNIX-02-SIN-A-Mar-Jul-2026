@@ -188,7 +188,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Por defecto Docker usa /bin/sh (un shell más limitado y antiguo). Lo
 # cambiamos a bash por si agregamos más instrucciones con sintaxis
 # moderna (arrays, [[ ]], etc.).
-SHELL ["/bin/zsh", "-c"]
+SHELL ["/bin/bash", "-c"]
 
 
 # ----------------------------------------------------------------------------
@@ -213,20 +213,27 @@ RUN git config --system --add safe.directory '*' \
 
 # ----------------------------------------------------------------------------
 # CMD: comando que se ejecuta por defecto al arrancar el contenedor
-# ----------------------------------------------------------------------------
+# ----------------------------------------------------------------------------P
 # Lanza una shell bash interactiva. Codespaces la sobrescribe con su
 # propia terminal integrada de VS Code, pero es buena práctica dejarla
 # definida para que la imagen sea usable también con Docker puro.
 # Prompt del curso para bash
-RUN chsh -s /usr/bin/zsh root
+RUN cat >> /root/.bashrc <<'EOF'
 
-RUN cat >> /root/.zshrc <<'EOF'
-
-PROMPT='%F{cyan}[Jonathan-Mullo💀]%f %F{yellow}%1~%f %(?.%F{green}√.%F{red}X %?)%f %# '
+# ===== Prompt del curso =====
+__set_prompt() {
+    local ec=$?
+    local mark
+    if [ $ec -eq 0 ]; then
+        mark='\[\e[32m\]✓\[\e[0m\]'
+    else
+        mark="\[\e[31m\]✗ $ec\[\e[0m\]"
+    fi
+    PS1="\[\e[36m\][Jonathan-Mullo💀]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $mark \$ "
+}
+PROMPT_COMMAND=__set_prompt
 EOF
-
-CMD ["/usr/bin/zsh"]
-
+CMD ["/bin/bash"]
 
 
 
