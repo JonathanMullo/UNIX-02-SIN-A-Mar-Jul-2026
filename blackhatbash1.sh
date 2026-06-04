@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 bash --version
 set -x
 env
