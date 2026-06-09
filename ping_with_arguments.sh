@@ -13,6 +13,7 @@ for args in "$@"; do
  echo "${args}"
 done
 
+# Takes input from the user and assigns it to variables
 echo "What is your first name?"
 read -r firstname
 echo "What is your last name?"
