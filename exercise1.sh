@@ -1,16 +1,12 @@
 #!/bin/bash
-Ask the user for their first name
-echo "Enter your first name:"
-read -r FIRST_NAME
-
-# Ask the user for their last name
-echo "Enter your last name:"
-read -r LAST_NAME
+# Assign argument one and two to variables
+FIRST_NAME="${1}"
+LAST_NAME="${2}"
 
 # Create a file named output.txt
 touch output.txt
 
-# Write the current date using DD-MM-YYYY format overwriting the file
+# Write the current date using DD-MM-YYYY format
 date +%d-%m-%Y > output.txt
 
 # Append first and last name to the file
