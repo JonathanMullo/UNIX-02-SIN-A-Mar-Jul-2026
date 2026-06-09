@@ -6,3 +6,6 @@ TARGET="${1}"
 echo "Running the script ${SCRIPT_NAME}..."
 echo "Pinging the target: ${TARGET}..."
 ping "${TARGET}"
+
+echo "The arguments are: $@"
+echo "The total number of arguments is: $#"
