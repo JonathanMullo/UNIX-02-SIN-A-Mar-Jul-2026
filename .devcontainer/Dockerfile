@@ -252,3 +252,17 @@ RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
  && git lfs install --system
+# =============================================================================
+# BLOCK K — chsh: change the default shell from root to zsh
+# =============================================================================
+# chsh (change shell) modifies /etc/passwd to change the login shell
+# of a user. Here we change the root shell to /usr/bin/zsh.
+#
+# This means that every time you open a terminal as root within the
+# container, will start bash automatically.
+#
+# The book mentions exactly this command in Chap.3 — Installing Kali:
+# "ensure that bash is the default shell for the kali user with this command:
+# sudo usermod --shell /bin/bash kali". Here we use chsh which does the same
+# for root, pointing to bash (BHB Ch.3).
+RUN chsh -s /usr/bin/bash root
