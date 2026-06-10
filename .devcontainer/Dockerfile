@@ -65,3 +65,134 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # debconf-set-selections — We respond false = only root can capture packets.
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
+
+# =============================================================================
+# BLOCK E — The big RUN: update and install all the tools
+# ===========================================================================
+# Each RUN creates a Docker layer.
+#
+# apt-get update: Download the updated list of available packages.
+#
+# apt-get install: Download and install the listed packages.
+#
+# -y: Automatically responds "yes" to all commits. The book uses
+# this flag exactly: "sudo apt install nuclei -y" (BHB Ch.3 — Nuclei).
+#
+# --no-install-recommends: only install strictly necessary dependencies,
+# no "recommended" extras. Keeps the image lighter.
+#
+# && - execute the next command ONLY if the previous one
+# was successful.
+#
+#\ - continues the command on the next line only for
+# readability.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    \
+     # Editores de texto y shells
+    # El libro menciona en Cap.1 "Installing a Text Editor": "Terminal-based
+    # text editors (such as vi or GNU nano) are useful because during a
+    # penetration test they may be the only available options when you need to
+    # develop a script on the spot." neovim y vim son esa opción.
+    # zsh: el libro menciona en Cap.3 que Kali usa zsh por defecto:
+    # "Newer Kali releases use the Z Shell (zsh) by default" (BHB Cap.3).
+    # bash-completion: agrega autocompletado con Tab para comandos de bash.
+    neovim \
+    vim \
+    zsh \
+    bash-completion \
+    \
+
+# Classic text processing tools
+    # grep   searches lines matching a pattern; used to filter command output
+    # sed    stream editor; finds and replaces text in files or piped output
+    # gawk   processes and extracts fields from structured text and columns
+    # perl   general-purpose scripting language; also used for text one-liners
+    # make   build automation tool; runs tasks defined in a Makefile
+    make \
+    gawk \
+    sed \
+    grep \
+    \
+# Basic UNIX utilities
+# coreutils provides cat, ls, head, tail, sort, cut, tr, wc, etc.
+    # findutils provides find and xargs to search for files on the system.
+    # procps provides ps, top, kill.
+    # less pager to read long files screen by screen.
+    # tree displays the directory structure as an ASCII tree.
+    # jq processes JSON from the command line.
+    coreutils \
+    findutils \
+    procps \
+    less \
+    tree \
+    jq \
+    \
+    # Manual pages: reinstalled because Kali removes them by default to save space
+    # manpages       documentation for standard Linux commands
+    # manpages-posix POSIX standard documentation for cross-system portability
+    man-db \
+    manpages \
+    manpages-posix \
+    \
+    # Networking and download utilities
+    # curl        transfers data from/to URLs; used to call web APIs from scripts
+    # wget        downloads files from URLs in a simple way
+    # git         version control; needed to clone and push to the course repo
+    # git-lfs     Git extension for handling large binary files in repositories
+    # ca-certificates SSL certificates to verify https connections
+    # locales     provides locale-gen and language data to configure Spanish
+    curl \
+    wget \
+    git \
+    git-lfs \
+    ca-certificates \
+    locales \
+    \
+    # shellcheck analyzes Bash scripts and warns about errors before running them
+    shellcheck \
+    \
+    # Network scanning
+    # nmap    port scanner; detects services and versions on remote hosts
+    # masscan high-speed massive scanner for large IP ranges
+    nmap \
+    masscan \
+    \
+    # Packet capture
+    # tcpdump captures raw network traffic from the terminal
+    # tshark  terminal version of Wireshark; decodes packets by protocol
+    tcpdump \
+    tshark \
+    \
+    # Miscellaneous network utilities
+    # netcat-traditional  opens raw TCP/UDP connections; useful for scanning and file transfer
+    # socat               like netcat but supports more protocols
+    # dnsutils            provides dig and nslookup for DNS queries
+    # whois               queries domain and IP registration information
+    # traceroute          shows network hops between this host and a destination
+    # mtr-tiny            combines ping and traceroute into a live view
+    # iproute2            modern network tools: ip addr, ip route, ss
+    # net-tools           legacy tools: ifconfig, netstat, route
+    # iputils-ping        provides the standard ping command
+    netcat-traditional \
+    socat \
+    dnsutils \
+    whois \
+    traceroute \
+    mtr-tiny \
+    iproute2 \
+    net-tools \
+    iputils-ping \
+    \
+    # Anonymity and traffic obfuscation
+    # tor           routes traffic through multiple encrypted relays to hide the origin IP
+    # torsocks      forces any command to send its traffic through Tor
+    # proxychains4  chains multiple proxies together for network pivoting
+    # obfs4proxy    disguises Tor traffic as HTTPS to bypass censorship
+    tor \
+    torsocks \
+    proxychains4 \
+    obfs4proxy \
+    \
+    # httpie  HTTP client with readable colored output; easier than curl for learning
+    httpie \
+    \
