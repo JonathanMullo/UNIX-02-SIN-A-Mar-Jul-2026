@@ -49,3 +49,19 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
     TERM=xterm-256color
+
+# =============================================================================
+# BLOCK D — debconf-set-selections: pre-answer installer questions
+# =============================================================================
+# Some packages ask questions during installation using debconf.
+# Wireshark (tshark) asks if non-root users can capture packets
+# an interactive yes/no dialogue.
+#
+# Since we have DEBIAN_FRONTEND=noninteractive, that dialog cannot be shown
+# and the build freezes or fails. The solution is to "pre-answer" the question
+# before the installation begins.
+#
+# The pipe | takes the output of echo and sends it as standard input to
+# debconf-set-selections — We respond false = only root can capture packets.
+RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
+    | debconf-set-selections
