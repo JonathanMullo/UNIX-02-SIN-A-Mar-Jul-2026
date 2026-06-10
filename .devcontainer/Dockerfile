@@ -25,3 +25,27 @@
 # "kali-rolling" means that packages are continually updated
 # (no fixed versions). "latest" always downloads the most recent snapshot.
 FROM kalilinux/kali-rolling:latest
+
+# =============================================================================
+# BLOCK C — ENV: environment variables
+# =============================================================================
+# ENV defines environment variables available during the build AND within the
+# running container.
+#
+# DEBIAN_FRONTEND=noninteractive
+# Tells apt NOT to ask interactive questions during installation.
+#
+# LANG=es_ES.UTF-8
+# Defines the main language of the system: Spanish from Spain with encryption
+#UTF-8. Affects date formats, number separators, and valid characters.
+#
+# LC_ALL=es_ES.UTF-8
+# Overrides ALL locale categories at the same time. It's the "switch" 
+# language master" — takes priority over any other LC_ variable.
+#
+# TERM=xterm-256color
+# Tells programs that the terminal supports 256 colors.
+ENV DEBIAN_FRONTEND=noninteractive \
+    LANG=es_ES.UTF-8 \
+    LC_ALL=es_ES.UTF-8 \
+    TERM=xterm-256color
