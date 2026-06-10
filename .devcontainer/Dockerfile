@@ -253,10 +253,10 @@ RUN git config --system --add safe.directory '*' \
  && git config --system pull.rebase false \
  && git lfs install --system
 # =============================================================================
-# BLOCK K — chsh: change the default shell from root to zsh
+# BLOCK K — chsh: change the default shell from root to bash
 # =============================================================================
 # chsh (change shell) modifies /etc/passwd to change the login shell
-# of a user. Here we change the root shell to /usr/bin/zsh.
+# of a user
 #
 # This means that every time you open a terminal as root within the
 # container, will start bash automatically.
@@ -265,9 +265,9 @@ RUN git config --system --add safe.directory '*' \
 # "ensure that bash is the default shell for the kali user with this command:
 # sudo usermod --shell /bin/bash kali". Here we use chsh which does the same
 # for root, pointing to bash (BHB Ch.3).
-RUN chsh -s /usr/bin/bash root
+RUN chsh -s /bin/bash root
 # =============================================================================
-# BLOCK L — Heredoc: write the custom prompt in .zshrc
+# BLOCK L — Heredoc: write the custom prompt in .bashrc
 # =============================================================================
 # A here-document (heredoc) is a way to pass multiple lines of text
 # to a command without creating a separate file.
@@ -316,3 +316,16 @@ __set_prompt() {
 }
 PROMPT_COMMAND=__set_prompt
 EOF
+# =============================================================================
+# BLOCK M — CMD: the command that is executed when starting the container
+# =============================================================================
+# CMD defines what runs when the container starts without specifying a command
+# (e.g., docker run my-image)
+#
+# Key difference between CMD and RUN:
+#   RUN → runs at BUILD time; its result is saved as a permanent layer (e.g., installing packages)
+#   CMD → runs at RUN time each time the container starts; can be overridden from the command line
+#
+# CMD ["/bin/bash"] launches an interactive bash shell when the container starts
+CMD ["/bin/bash"]
+
