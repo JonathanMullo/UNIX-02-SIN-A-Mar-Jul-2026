@@ -196,3 +196,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # httpie  HTTP client with readable colored output; easier than curl for learning
     httpie \
     \
+# =============================================================================
+    # BLOCK F — sed and locale-gen: activate the Spanish locale
+    # =============================================================================
+    # sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen
+    # sed is the stream editor 
+    #
+    # locale-gen: compiles the activated locales into binaries that
+    # use the system at runtime.
+ && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
+ && locale-gen \
+ \
