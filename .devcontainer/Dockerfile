@@ -266,3 +266,53 @@ RUN git config --system --add safe.directory '*' \
 # sudo usermod --shell /bin/bash kali". Here we use chsh which does the same
 # for root, pointing to bash (BHB Ch.3).
 RUN chsh -s /usr/bin/bash root
+# =============================================================================
+# BLOCK L — Heredoc: write the custom prompt in .zshrc
+# =============================================================================
+# A here-document (heredoc) is a way to pass multiple lines of text
+# to a command without creating a separate file.
+#
+# The book explains the heredocs in Ch.1 under "Redirection Operators",
+# Table 1-4: "<< Called a here document, or heredoc, redirects multiple input
+# lines to a command". And it shows it in Listing 1-21:
+#$cat << EOF
+#BlackHatBash
+# by No Starch Press
+#EOF
+# "Here document redirection treats the input as if it were a separate file,
+# preserving line breaks and whitespace." (BHB Ch.1 — Redirection Operators).
+#
+# The quotes in 'EOF' tell the shell NOT to expand variables inside
+#
+# cat >> /root/.bashrc uses the operator >> (append) explained in Chap.1,
+# Table 1-4: ">> Redirects stdout to a file by appending it to the existing
+# content". This adds the configuration to the .bashrc without deleting what already exists.
+# (BHB Ch.1 — Redirection Operators, Listing 1-19).
+#
+#The book explains the ~/.bashrc in Chap.2: "We can use the ~/.bashrc file to load functions,
+# variables, and just about any other custom bash code we desire into a new
+# bash session." (BHB Ch.2 — Customizing the ~/.bashrc Profile).
+#
+# What the prompt function does:
+#   $?                     captures the exit code of the last command (0 = success, anything else = failure)
+#   \[\e[36m\]             sets text color to cyan
+#   [Jonathan-Mullo💀]     custom username shown in the prompt
+#   \[\e[33m\]\W           current directory name in yellow (\W = last path component only)
+#   ✓ in green             shown when the last command succeeded (exit code 0)
+#   ✗ + exit code in red   shown when the last command failed
+#   PROMPT_COMMAND         bash runs this function before displaying each prompt
+RUN cat >> /root/.bashrc <<'EOF'
+
+# ===== Prompt del curso =====
+__set_prompt() {
+    local ec=$?
+    local mark
+    if [ $ec -eq 0 ]; then
+        mark='\[\e[32m\]✓\[\e[0m\]'
+    else
+        mark="\[\e[31m\]✗ $ec\[\e[0m\]"
+    fi
+    PS1="\[\e[36m\][Jonathan-Mullo💀]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $mark \$ "
+}
+PROMPT_COMMAND=__set_prompt
+EOF
