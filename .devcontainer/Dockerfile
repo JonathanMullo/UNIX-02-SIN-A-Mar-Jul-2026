@@ -197,8 +197,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     httpie \
     \
 # =============================================================================
-    # BLOCK F — sed and locale-gen: activate the Spanish locale
-    # =============================================================================
+# BLOCK F — sed and locale-gen: activate the Spanish locale
+# =============================================================================
     # sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen
     # sed is the stream editor 
     #
@@ -207,3 +207,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
  && locale-gen \
  \
+# =============================================================================
+# BLOCK G — Cleanup: reduce final image size
+# =============================================================================
+    # After installing, apt leaves unnecessary files:
+    # - Downloaded .deb files (the installers)
+    # - The package index downloaded with update
+    #
+    # apt-get clean: remove cached .deb files.
+    # rm -rf /var/lib/apt/lists/*: remove files from the index.
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
