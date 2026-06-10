@@ -240,3 +240,15 @@ SHELL ["/bin/bash", "-c"]
 # the terminal opens right where the course files are, without need
 # to navigate manually.
 WORKDIR /workspaces
+# =============================================================================
+# BLOCK J — git config: global Git configuration
+# =============================================================================
+# Global Git configuration applied to all repositories inside the container
+# safe.directory '*'       trusts directories with a different UID than root
+# init.defaultBranch main  the initial branch created by git init is called "main"
+# pull.rebase false        git pull uses merge instead of rebase
+# git lfs install          registers LFS hooks globally
+RUN git config --system --add safe.directory '*' \
+ && git config --system init.defaultBranch main \
+ && git config --system pull.rebase false \
+ && git lfs install --system
