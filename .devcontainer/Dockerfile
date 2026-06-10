@@ -228,3 +228,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # By default Docker uses /bin/sh which is a minimal POSIX shell, more limited than bash
 # Switching to bash allows later RUN steps to use bash-specific syntax if needed
 SHELL ["/bin/bash", "-c"]
+# =============================================================================
+# BLOCK I — WORKDIR: default work directory
+# =============================================================================
+# WORKDIR defines the "current" directory when entering the container and for all
+# the RUN, COPY and CMD instructions that come after. It is equivalent to
+# run `cd /workspaces` before each command.
+#
+# GitHub Codespaces (and VS Code devcontainers) mount automatically
+# the repository under /workspaces/dev2. By defining WORKDIR here,
+# the terminal opens right where the course files are, without need
+# to navigate manually.
+WORKDIR /workspaces
