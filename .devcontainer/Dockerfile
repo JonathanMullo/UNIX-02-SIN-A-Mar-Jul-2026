@@ -317,14 +317,14 @@ __set_prompt() {
 PROMPT_COMMAND=__set_prompt
 EOF
 # =============================================================================
-# BLOCK M — CMD: the command that is executed when starting the container
+# BLOCK M  CMD: the command that is executed when starting the container
 # =============================================================================
 # CMD defines what runs when the container starts without specifying a command
 # (e.g., docker run my-image)
 #
 # Key difference between CMD and RUN:
-#   RUN → runs at BUILD time; its result is saved as a permanent layer (e.g., installing packages)
-#   CMD → runs at RUN time each time the container starts; can be overridden from the command line
+#   RUN  runs at BUILD time; its result is saved as a permanent layer (e.g., installing packages)
+#   CMD  runs at RUN time each time the container starts; can be overridden from the command line
 #
 # CMD ["/bin/bash"] launches an interactive bash shell when the container starts
 CMD ["/bin/bash"]
