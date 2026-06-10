@@ -218,3 +218,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # rm -rf /var/lib/apt/lists/*: remove files from the index.
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+# =============================================================================
+# BLOCK H — SHELL: change the interpreter for the following RUNs
+# =============================================================================
+# By default Docker executes RUNs using /bin/sh the minimal shell
+# POSIX, more limited than bash or zsh.
+#
+# SHELL: switch the interpreter for the following RUN instructions from /bin/sh to bash
+# By default Docker uses /bin/sh which is a minimal POSIX shell, more limited than bash
+# Switching to bash allows later RUN steps to use bash-specific syntax if needed
+SHELL ["/bin/bash", "-c"]
