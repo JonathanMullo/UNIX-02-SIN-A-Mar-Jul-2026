@@ -1,0 +1,9 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[remote "origin"]
+	url = https://github.com/JonathanMullo/UNIX-02-SIN-A-Mar-Jul-2026.git
+[remote "codeberg"]
+	url = https://codeberg.org/JonathanMp/dev2.git
+	fetch = +refs/heads/*:refs/remotes/codeberg/*

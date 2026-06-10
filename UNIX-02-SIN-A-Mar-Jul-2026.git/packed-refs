@@ -1,0 +1,12 @@
+# pack-refs with: peeled fully-peeled sorted 
+6a30096bd791e9030ff9dafeec6a9c4ee0f38962 refs/heads/blackhatbash
+f5ba218fada9316b258a28f6cdb34a31e85449cf refs/heads/boot
+63bce1f0f130fd0c37795db2bdb6e7dcff4a3bee refs/heads/boot_exploration
+22611fdd44c2f60eed119ac1d886cbc8b46fc57a refs/heads/dev
+cfdb6303e62d20f22c656198037c204b7d7d795a refs/heads/dev2
+c2470f06efe4b01a85819fd11dfc013397dabcd1 refs/heads/eval_p2_1_g2
+11e7687eb231b77888de0e06bedc5312e077704e refs/heads/fs_exploration
+f18c00fcd0f850e814891959858363834c06b856 refs/heads/linux_cisco_1
+0d7f722e0fdc950c450541961d360ea6b6cbcddd refs/heads/main
+16de6d829aa918c9c7240c346f739224c7533bc2 refs/heads/security
+8b99a16289df46a75e1c087b82cae4a9a8ebd4f0 refs/heads/security2

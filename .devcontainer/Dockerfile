@@ -88,14 +88,14 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 # readability.
 RUN apt-get update && apt-get install -y --no-install-recommends \
     \
-     # Editores de texto y shells
-    # El libro menciona en Cap.1 "Installing a Text Editor": "Terminal-based
+# Text editors and shells
+    # The book mentions in Chap.1 "Installing a Text Editor": "Terminal-based
     # text editors (such as vi or GNU nano) are useful because during a
     # penetration test they may be the only available options when you need to
-    # develop a script on the spot." neovim y vim son esa opción.
-    # zsh: el libro menciona en Cap.3 que Kali usa zsh por defecto:
-    # "Newer Kali releases use the Z Shell (zsh) by default" (BHB Cap.3).
-    # bash-completion: agrega autocompletado con Tab para comandos de bash.
+    # develop a script on the spot." neovim and vim are that option.
+    # zsh: the book mentions in Ch.3 that Kali uses zsh by default:
+    # "Newer Kali releases use the Z Shell (zsh) by default" (BHB Ch.3).
+    # bash-completion: Add Tab autocompletion for bash commands.
     neovim \
     vim \
     zsh \
@@ -253,18 +253,19 @@ RUN git config --system --add safe.directory '*' \
  && git config --system pull.rebase false \
  && git lfs install --system
 # =============================================================================
-# BLOCK K — chsh: change the default shell from root to bash
+# BLOCK K — chsh: change the default shell for root to bash
 # =============================================================================
-# chsh (change shell) modifies /etc/passwd to change the login shell
-# of a user
+# chsh (change shell) modifies /etc/passwd to set a new login shell for a user.
+# Here we point root's shell to /bin/bash instead of the default /bin/sh.
 #
-# This means that every time you open a terminal as root within the
-# container, will start bash automatically.
+# This means every terminal session opened as root inside the container
+# will start bash automatically. Bash is more feature-rich than sh —
+# it supports arrays, extended scripting syntax, and the customizations
+# we add to .bashrc later in this Dockerfile.
 #
-# The book mentions exactly this command in Chap.3 — Installing Kali:
-# "ensure that bash is the default shell for the kali user with this command:
-# sudo usermod --shell /bin/bash kali". Here we use chsh which does the same
-# for root, pointing to bash (BHB Ch.3).
+# The book highlights this distinction in Ch.1: bash is the "Bourne Again Shell",
+# an improved version of sh with scripting features essential for
+# penetration testing workflows (BHB Ch.1 — Introduction to Bash).
 RUN chsh -s /bin/bash root
 # =============================================================================
 # BLOCK L — Heredoc: write the custom prompt in .bashrc
