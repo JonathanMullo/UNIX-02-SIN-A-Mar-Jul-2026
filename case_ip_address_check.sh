@@ -16,3 +16,6 @@ case ${IP_ADDRESS} in
         echo "Could not identify the network"
         ;;
 esac
+#192.168.5.KLK
+#10.0.5.kl
+#127.0.109
