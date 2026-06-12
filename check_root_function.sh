@@ -25,3 +25,11 @@ else
 fi
 # EUID (Effective User ID) stores the ID of the user executing the script; root always has ID 0
 EUID
+# Create a new user luna 
+# useradd luna
+# Log in as user "luna"
+# su - luna
+# Display the username of the current user
+# whoami
+# Run the script that checks root-related functionality
+# bash check_root_function.sh
