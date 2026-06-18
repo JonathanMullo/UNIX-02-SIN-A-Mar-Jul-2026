@@ -9,3 +9,8 @@ ps | grep -i tty
 grep -v "35.237.4.214" log.txt
 # -o
 grep -o "35.237.4.214" log.txt
+#awk
+awk '{print $1}' log.txt
+awk '{print $1,$2,$3}' log.txt
+awk '{print $2}' log.txt
+awk '{print $3}' log.txt
