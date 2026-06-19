@@ -53,3 +53,15 @@ sleep 100 &
 jobs
 fg %
 bg %1
+
+# EXERCISE 2
+# Makes the script executable by granting execution permissions to the file.
+chmod +x exercise_solution.sh
+# Runs the script in the background (&) and prevents it from stopping if the terminal closes (nohup). The 'sleep 30' inside keeps it alive for 30 seconds.
+nohup ./exercise_solution.sh prueba_30seg 127.0.0.1 &
+# Searches for the running process in the active process list while it is sleeping.
+ps aux | grep exercise_solution.sh
+# Pauses the terminal for 30 seconds to give the background script enough time to finish.
+sleep 30
+# After the wait, reads the content of the newly generated file.
+cat results.csv
