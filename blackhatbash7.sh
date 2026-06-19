@@ -36,3 +36,13 @@ grep "Mozilla" log.txt
 grep "Godzilla" log.txt
 sed 's/Mozilla/Godzilla/g' log.txt > newlog.txt
 grep "Godzilla" newlog.txt
+
+sed '1d' newlog.txt
+sed -i '1d' newlog.txt
+diff log.txt newlog.txt # Compare the original and modified log files
+sed '$d' newlog.txt
+sed -i '$d' newlog.txt 
+tail -n 1 newlog.txt # Show the last line of the modified log file
+sed 's/ //g' newlog.txt > newlog1.txt
+cat newlog1.txt
+sed '5,7d' newlog1.txt
