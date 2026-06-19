@@ -48,3 +48,8 @@ cat newlog1.txt
 sed '5,7d' newlog1.txt
 
 sed -n '10,15p' log.txt
+
+sleep 100 &
+jobs
+fg %
+bg %1
