@@ -46,3 +46,5 @@ tail -n 1 newlog.txt # Show the last line of the modified log file
 sed 's/ //g' newlog.txt > newlog1.txt
 cat newlog1.txt
 sed '5,7d' newlog1.txt
+
+sed -n '10,15p' log.txt
